@@ -1,0 +1,47 @@
+
+.background{
+    
+    background-color: white;
+
+  
+}
+
+
+.nolist{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+header{
+    border-bottom: 2px solid black;
+}
+
+
+#headshot {
+    max-width: 125px;
+    border-radius: 300px;
+    
+}
+
+li {
+    overflow: hidden;
+}
+
+
+main{
+    margin:30px;
+    border-bottom: 2px solid black;
+}
+main a{
+    color: black;
+}
+#publications, #education {
+    border-bottom: none;
+}
+
+
+
+
+
+

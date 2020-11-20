@@ -1,0 +1,74 @@
+[{
+    "dashname": "limit-electronics",
+    "name": "Limit Electronics",
+    "description":"Limit Electronics is a one-stop shop for your electronic needs. In this project we created a mock e-commerce site complete with search, add to cart, checkout, inventory management and sales analysis features. Use username: Justin password: password to access admin features.",
+    "deployatgithub": false,
+    "deployelsewhere": true,
+    "deployelse": "https://fierce-earth-38835.herokuapp.com/" 
+},
+{
+    "dashname": "whats-for-dinner",
+    "name": "What's For Dinner?",
+    "description":"A website meant to recommend dinner and drink options to the user.  After choosing an option, the user can then see the recipe and instructions to make his/her choice.",
+    "deployatgithub": true,
+    "deployelsewhere": false,
+    "deployelse": null 
+},
+{
+    "dashname": "covid-data",
+    "name": "COVID Tracking",
+    "description":"Want to check the latest statistics for COVID in your state?  You can get detailed up to date information here.",
+    "deployatgithub": true,
+    "deployelsewhere": false,
+    "deployelse": null 
+},
+{
+    "dashname": "team-information",
+    "name": "Team Information",
+    "description":"A node.js program that can take user infomration and save and display employee information.",
+    "deployatgithub": false,
+    "deployelsewhere": false,
+    "deployelse": null 
+},
+{
+    "dashname": "readme-generator",
+    "name": "Readme Generator",
+    "description":"A node.js program that is used to generate a detailed readme for github repositories.",
+    "deployatgithub": false,
+    "deployelsewhere": false,
+    "deployelse": null 
+},
+{
+    "dashname": "weather-forecast",
+    "name": "Weather Forecast",
+    "description":"Choose any city or cities.  Then view the current weather as well as the five-day forecast for a chosen city.",
+    "deployatgithub": true,
+    "deployelsewhere": false,
+    "deployelse": null 
+},
+{
+    "dashname": "code-quiz",
+    "name": "Code Quiz",
+    "description":"See how well you know javaScript.  After finishing you can also save your high score!",
+    "deployatgithub": true,
+    "deployelsewhere": false,
+    "deployelse": null 
+},
+{
+    "dashname": "daily-calendar",
+    "name": "Daily Calendar",
+    "description":"Write down and store your planned activities for the day.  Then remove them from you itinerary when you've completed them.",
+    "deployatgithub": true,
+    "deployelsewhere": false,
+    "deployelse": null 
+},
+{
+    "dashname": "password-generator",
+    "name": "Password Generator",
+    "description":"Generate a secure password from your choice of character sets.",
+    "deployatgithub": true,
+    "deployelsewhere": false,
+    "deployelse": null 
+}
+
+]
