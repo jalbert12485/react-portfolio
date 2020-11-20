@@ -1,15 +1,67 @@
 import React from "react";
 import "../../index.css";
+import axios from 'axios';
 
-const style={
+let style={
   background: {
     backgroundColor: "white"
+  },
+  thankyou: {
+    display: "none"
   }
 }
 
 
 // creates the content that will be rendered in App.js
 function Contact(props) {
+
+  const [formState, setFormState] = React.useState({
+    display: "none",
+    email: "",
+    text: "",
+    name: "",
+    body: {
+      "from": "",
+      "to": "jalbert@carthage.edu",
+      "subject": "",
+      "text": ""
+    }
+  });
+
+  const handleInputChange= (option, event) =>{
+    formState[option]=event;
+    setFormState({...formState, formState});
+    changeBody();
+  }
+
+
+  const changeBody= ()=> {
+    setFormState({
+      ...formState,
+      body: {
+        "from": formState.email,
+        "to": "jalbert@carthage.edu",
+        "subject": "Message from "+ formState.name + " at " + formState.email,
+        "text": formState.text
+      }
+    })
+  }
+
+
+
+axios.post('/emailme', formState.body)
+  .then(function (res) {
+      document.querySelector("#exampleInputName1").disabled=true;
+      document.querySelector("#exampleInputEmail1").disabled=true;
+      document.querySelector("#exampleFormControlTextarea1").disabled=true;
+      document.querySelector("#submitbutton").disabled=true;
+      setFormState( {...formState, display: "block"});
+      res.end();
+    })
+ 
+
+};
+
   return (
     <main className="container mr-auto ml-auto " >
     <div className="row">
@@ -54,21 +106,28 @@ function Contact(props) {
 
     <section className="row">
 
-          <form className="col-12">
+          <form className="col-12" onSubmit={handleSubmit}>
             <div className="form-group">
               <label for="exampleInputName1">Name</label>
-              <input type="email" className="form-control" id="exampleInputName1" placeholder="Enter Name"/>
+              <input type="text" className="form-control" id="exampleInputName1" placeholder="Enter Name"   onChange={(e) =>{
+            handleInputChange("name", e.target.value);
+          }}/>
             </div>
             <div className="form-group">
               <label for="exampleInputEmail1">Email address</label>
-              <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+              <input onChange={(e) =>{
+            handleInputChange("email", e.target.value);
+          }} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
             </div>
             <div className="form-group">
               <label for="exampleFormControlTextarea1">Message</label>
-              <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <textarea onChange={(e) =>{
+            handleInputChange("text", e.target.value);
+          }} className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
             <button id="submitbutton" type="submit" className="btn btn-primary">Submit</button>
           </form>
+          <p style={{display: formState.display}}> Thank you {formState.name} your email has been sent.</p>
         </section>
       </div>
     </div>
