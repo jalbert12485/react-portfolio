@@ -1,6 +1,14 @@
 import React from "react";
 import "../../index.css";
-import axios from 'axios';
+var nodemailer = require('nodemailer');
+
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.USER_NAME,
+    pass: process.env.USER_PASSWORD
+  }
+});
 
 let style={
   background: {
@@ -50,14 +58,21 @@ function Contact(props) {
 
 const handleSubmit=(e)=>{
   e.preventDefault();
-// axios.post('/emailme', formState.body)
-//   .then(function (res) {
+
+  transporter.sendMail(formState.body, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
+
       document.querySelector("#exampleInputName1").disabled=true;
       document.querySelector("#exampleInputEmail1").disabled=true;
       document.querySelector("#exampleFormControlTextarea1").disabled=true;
       document.querySelector("#submitbutton").disabled=true;
       setFormState( {...formState, display: "block"});
-    // })
+
  };
 
   return (
