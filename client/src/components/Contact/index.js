@@ -32,7 +32,7 @@ function Contact(props) {
     formState[option]=event;
     setFormState({...formState, formState});
     changeBody();
-  }
+  };
 
 
   const changeBody= ()=> {
@@ -45,10 +45,11 @@ function Contact(props) {
         "text": formState.text
       }
     })
-  }
+  };
 
 
-
+const handleSubmit=(e)=>{
+  e.preventDefault();
 axios.post('/emailme', formState.body)
   .then(function (res) {
       document.querySelector("#exampleInputName1").disabled=true;
@@ -56,11 +57,8 @@ axios.post('/emailme', formState.body)
       document.querySelector("#exampleFormControlTextarea1").disabled=true;
       document.querySelector("#submitbutton").disabled=true;
       setFormState( {...formState, display: "block"});
-      res.end();
     })
- 
-
-};
+ };
 
   return (
     <main className="container mr-auto ml-auto " >

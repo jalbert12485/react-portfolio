@@ -2,7 +2,6 @@
 
 // Dependencies
 const express = require('express');
-const routes = require('./routes');
 
 // Express instance
 const app = express();
@@ -21,7 +20,7 @@ if (process.env.NODE_ENV === 'production') {
 };
 
 // API and View Routes
-app.use(routes);
+app.use(require("./apiroute.js"));
 
 // Start the server
 app.listen(PORT, () => {
