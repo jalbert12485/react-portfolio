@@ -50,14 +50,14 @@ function Contact(props) {
 
 const handleSubmit=(e)=>{
   e.preventDefault();
-axios.post('/emailme', formState.body)
-  .then(function (res) {
+// axios.post('/emailme', formState.body)
+//   .then(function (res) {
       document.querySelector("#exampleInputName1").disabled=true;
       document.querySelector("#exampleInputEmail1").disabled=true;
       document.querySelector("#exampleFormControlTextarea1").disabled=true;
       document.querySelector("#submitbutton").disabled=true;
       setFormState( {...formState, display: "block"});
-    })
+    // })
  };
 
   return (
